@@ -12,5 +12,3 @@ func _process(delta: float) -> void:
 	var target_y = lead.position.y + min(max_distance, abs(lead_velocity.y)) * sign(lead_velocity.y)
 	position.x = target_x + offset.x
 	position.y = target_y + offset.y
-	#position.x = move_toward(position.x, min(position.x + max_distance, max(position.x - max_distance, lead.position.x)), delta * speed)
-	#position.y = move_toward(position.y, min(position.y + max_distance, max(position.y - max_distance, lead.position.y)), delta * speed)
