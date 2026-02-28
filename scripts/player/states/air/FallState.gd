@@ -19,10 +19,10 @@ func _air_update(player, state_machine, delta):
 		player.movement.stop_moving(player)
 	
 	if (player.input.jump_pressed()):
-		player.movement.start_buffer_timer()
-		
-		if (player.movement.can_jump()):
+		if (player.movement.can_jump() && player.movement.is_in_coyote_time()):
 			state_machine.change_state(PlayerStateMachine.StateID.JUMP)
+		
+		player.movement.start_buffer_timer()
 		
 	if (player.is_on_floor()):
 		state_machine.change_state(PlayerStateMachine.StateID.IDLE)

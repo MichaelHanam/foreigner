@@ -41,7 +41,13 @@ func reset_jumps():
 	has_jumped = false
 	
 func can_jump() -> bool: 
-	return not has_jumped && (jump_buffer_timer || coyote_timer)
+	return not has_jumped
+	
+func is_in_buffer_time() -> bool:
+	return jump_buffer_timer
+	
+func is_in_coyote_time() -> bool:
+	return coyote_timer
 
 func apply(entity: CharacterBody2D):
 	entity.move_and_slide()

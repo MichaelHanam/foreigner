@@ -158,7 +158,6 @@ script = ExtResource("2_ykyjo")
 max_move_speed = 400.0
 jump_velocity = -220.0
 deceleration = 50.0
-coyote_time = 1.0
 
 [node name="InputComponent" type="Node" parent="."]
 script = ExtResource("5_f46kd")
