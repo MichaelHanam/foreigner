@@ -159,7 +159,7 @@ states = Dictionary[int, Resource]({
 script = ExtResource("2_ykyjo")
 max_move_speed = 400.0
 jump_velocity = -220.0
-boost_velocity = 65
+boost_velocity = 60
 deceleration = 50.0
 
 [node name="InputComponent" type="Node" parent="."]
@@ -167,6 +167,7 @@ script = ExtResource("5_f46kd")
 
 [node name="GravityComponent" type="Node" parent="."]
 script = ExtResource("6_3rerk")
+max_fall_speed = 600.0
 
 [node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player")]
 script = ExtResource("11_3nfmf")
