@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="JumpState" load_steps=2 format=3 uid="uid://bf1v7stp0ymvj"]
+
+[ext_resource type="Script" uid="uid://jq5pblugp3d4" path="res://scripts/player/states/air/JumpState.gd" id="1_58c3h"]
+
+[resource]
+script = ExtResource("1_58c3h")
+metadata/_custom_type_script = "uid://jq5pblugp3d4"

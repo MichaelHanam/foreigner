@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="IdleState" load_steps=2 format=3 uid="uid://dws58i5ymdylx"]
+
+[ext_resource type="Script" uid="uid://h1hul3tireuc" path="res://scripts/player/states/grounded/IdleState.gd" id="1_7nk6q"]
+
+[resource]
+script = ExtResource("1_7nk6q")
+metadata/_custom_type_script = "uid://h1hul3tireuc"

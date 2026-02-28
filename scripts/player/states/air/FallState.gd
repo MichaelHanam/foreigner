@@ -1,4 +1,5 @@
 extends AirState
+class_name FallState
 
 func _air_update(player, state_machine, delta):
 	var direction = player.input.get_direction()
@@ -10,3 +11,6 @@ func _air_update(player, state_machine, delta):
 		
 	if (player.velocity.y > 0):
 		state_machine.change_state(PlayerStateMachine.StateID.FALL)
+
+func print_name():
+	print('fall')

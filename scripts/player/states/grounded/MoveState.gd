@@ -1,4 +1,5 @@
 extends GroundedState
+class_name MoveState
 
 func _grounded_update(player, state_machine, delta):
 	if (not player.input.get_direction()):
@@ -8,4 +9,3 @@ func _grounded_update(player, state_machine, delta):
 	
 	if (player.input.jump_pressed()):
 		state_machine.change_state(PlayerStateMachine.StateID.JUMP)
- 

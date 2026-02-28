@@ -1,11 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0d3wyqm3sjw3"]
+[gd_scene load_steps=19 format=3 uid="uid://c0d3wyqm3sjw3"]
 
 [ext_resource type="Texture2D" uid="uid://y1ju5fkgl25x" path="res://assets/sprites/player/spr_player.png" id="1_eqqp1"]
 [ext_resource type="Script" uid="uid://fuhwjbwxgafl" path="res://scripts/player/Player.gd" id="1_uxov2"]
 [ext_resource type="Script" uid="uid://6llfvsp5lajq" path="res://scripts/components/MovementComponent.gd" id="2_ykyjo"]
 [ext_resource type="Script" uid="uid://pqof0afeal2r" path="res://scripts/player/states/PlayerStateMachine.gd" id="3_nmc1l"]
+[ext_resource type="Resource" uid="uid://dws58i5ymdylx" path="res://scripts/player/states/grounded/IdleState.tres" id="4_4vq5b"]
+[ext_resource type="Resource" uid="uid://dldqvqkbscgdx" path="res://scripts/player/states/grounded/MoveState.tres" id="5_4vq5b"]
 [ext_resource type="Script" uid="uid://doy7mbk4eho6k" path="res://scripts/components/InputComponent.gd" id="5_f46kd"]
+[ext_resource type="Resource" uid="uid://bf1v7stp0ymvj" path="res://scripts/player/states/air/JumpState.tres" id="6_3nfmf"]
 [ext_resource type="Script" uid="uid://bwkajbpfqye4r" path="res://scripts/components/GravityComponent.gd" id="6_3rerk"]
+[ext_resource type="Resource" uid="uid://bnyy7hao2dvd0" path="res://scripts/player/states/air/FallState.tres" id="7_42cpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykyjo"]
 size = Vector2(26, 8)
@@ -142,6 +146,12 @@ libraries = {
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_nmc1l")
+states = Dictionary[int, Resource]({
+0: ExtResource("4_4vq5b"),
+1: ExtResource("5_4vq5b"),
+2: ExtResource("6_3nfmf"),
+3: ExtResource("7_42cpl")
+})
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("2_ykyjo")

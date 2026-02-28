@@ -1,4 +1,5 @@
 extends AirState
+class_name JumpState
 
 func enter(player):
 	player.movement.jump(player)
@@ -13,3 +14,6 @@ func _air_update(player, state_machine, delta):
 		
 	if (player.velocity.y > 0):
 		state_machine.change_state(PlayerStateMachine.StateID.FALL)
+
+func print_name():
+	print('jump')

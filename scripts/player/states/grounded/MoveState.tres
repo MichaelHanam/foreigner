@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MoveState" load_steps=2 format=3 uid="uid://dldqvqkbscgdx"]
+
+[ext_resource type="Script" uid="uid://vyx8tjb5mkk" path="res://scripts/player/states/grounded/MoveState.gd" id="1_8d8b2"]
+
+[resource]
+script = ExtResource("1_8d8b2")
+metadata/_custom_type_script = "uid://vyx8tjb5mkk"

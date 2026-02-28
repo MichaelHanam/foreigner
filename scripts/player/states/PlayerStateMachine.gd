@@ -11,11 +11,11 @@ enum StateID {
 @export var states : Dictionary[StateID, Resource]
 @export var initial_state : StateID
 
-var current_state : PlayerState
-var player
+var current_state : Resource
+var player : Player
 
-func init(player):
-	player = player
+func init(p):
+	player = p
 	change_state(initial_state)
 	
 func change_state(state_id: StateID):
