@@ -1,7 +1,8 @@
 extends GroundedState
 class_name IdleState
 
-func enter(player):	
+func enter(player):
+	player.animator.play(PlayerAnimator.Animations.IDLE)
 	player.movement.reset_jumps()
 
 func _grounded_update(player, state_machine, delta):

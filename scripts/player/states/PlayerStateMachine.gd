@@ -14,7 +14,7 @@ enum StateID {
 var current_state : Resource
 var player : Player
 
-func init(p):
+func init(p: Player):
 	player = p
 	change_state(initial_state)
 	
@@ -23,10 +23,10 @@ func change_state(state_id: StateID):
 		current_state.exit(player)
 	
 	if (not states[state_id]):
-		print('there is no state: ', state_id)
+		print('there is no state: ', StateID.keys()[state_id])
 		pass
 	
-	print('changed state to: ', state_id)
+	print('changed state to: ', StateID.keys()[state_id])
 	
 	current_state = states[state_id]
 	current_state.enter(player)

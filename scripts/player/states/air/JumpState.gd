@@ -2,6 +2,7 @@ extends AirState
 class_name JumpState
 
 func enter(player):
+	player.animator.play(PlayerAnimator.Animations.JUMP)
 	player.movement.jump(player)
 	
 func _air_update(player, state_machine, delta):
