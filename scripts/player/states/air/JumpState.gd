@@ -6,6 +6,7 @@ const GRAVITY := 500.0
 func enter(player):
 	player.animator.play(PlayerAnimator.Animations.JUMP)
 	player.movement.jump(player)
+	player.audio.play_jumping()
 	
 func _air_update(player, state_machine, delta):
 	player.gravity.apply(player, GRAVITY, delta)

@@ -10,3 +10,6 @@ func _grounded_update(player, state_machine, delta):
 		return
 		
 	player.movement.stop_moving(player)
+	
+func exit(player):
+	player.audio.stop()

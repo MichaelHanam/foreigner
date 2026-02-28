@@ -27,5 +27,6 @@ func stop():
 	sfx_player.stop()
 
 func _play(audio_stream: AudioStream):
-	sfx_player.stream = audio_stream
-	sfx_player.play()
+	if (not sfx_player.playing):
+		sfx_player.stream = audio_stream
+		sfx_player.play()
