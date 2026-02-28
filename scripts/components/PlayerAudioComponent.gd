@@ -29,6 +29,6 @@ func stop():
 
 func _play(audio_stream: AudioStream):
 	if (not sfx_player.playing):
-		sfx_player.pitch_scale = randf_range(1 - pitch_variation, 1 + pitch_variation)
 		sfx_player.stream = audio_stream
+		sfx_player.pitch_scale = randf_range(1 - pitch_variation, 1 + pitch_variation)
 		sfx_player.play()

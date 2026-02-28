@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://mixpymbdqtq6"
-path="res://.godot/imported/sfx_jump.wav-122d8d1d0b4827e88719b52488d86381.sample"
+path="res://.godot/imported/sfx_jump.wav-ee75edf75cab9fbef3b1eccf2af76634.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/sfx_jump.wav"
-dest_files=["res://.godot/imported/sfx_jump.wav-122d8d1d0b4827e88719b52488d86381.sample"]
+source_file="res://assets/audio/sfx/player/sfx_jump.wav"
+dest_files=["res://.godot/imported/sfx_jump.wav-ee75edf75cab9fbef3b1eccf2af76634.sample"]
 
 [params]
 
