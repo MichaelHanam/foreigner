@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bhqds3jipry74"]
+[gd_scene load_steps=7 format=4 uid="uid://bhqds3jipry74"]
 
 [ext_resource type="Texture2D" uid="uid://cj4k56hmrkcqn" path="res://assets/tilesets/tileset_cave.png" id="1_2ddto"]
 [ext_resource type="Texture2D" uid="uid://bqq48r3qny5kk" path="res://assets/msc/spr_griid.png" id="3_a8pr3"]
 [ext_resource type="PackedScene" uid="uid://c0d3wyqm3sjw3" path="res://objects/player.tscn" id="4_j6lu3"]
+[ext_resource type="Script" uid="uid://c6djuvf6avs6o" path="res://scripts/Follower.gd" id="4_tpt06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgld7"]
 texture = ExtResource("1_2ddto")
@@ -343,3 +344,12 @@ stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("4_j6lu3")]
 position = Vector2(40, 64)
+
+[node name="Follower" type="Node2D" parent="." node_paths=PackedStringArray("lead")]
+script = ExtResource("4_tpt06")
+lead = NodePath("../Player")
+speed = 100.0
+offset = Vector2(0, -10)
+
+[node name="Camera2D" type="Camera2D" parent="Follower"]
+position_smoothing_enabled = true
