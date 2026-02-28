@@ -9,6 +9,3 @@ func _grounded_update(player, state_machine, delta):
 		state_machine.change_state(PlayerStateMachine.StateID.IDLE)
 		
 	player.movement.move_horizontally(player, player.input.get_direction())
-	
-	if (player.input.jump_pressed()):
-		state_machine.change_state(PlayerStateMachine.StateID.JUMP)

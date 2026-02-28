@@ -5,6 +5,9 @@ class_name MovementComponent
 @export var jump_velocity := -150.0
 @export var acceleration := 40.0
 @export var deceleration := 40.0
+@export var jump_buffer_time := 0.15
+
+var jump_buffer_timer := 0.0
 
 var move_speed := max_move_speed
 var has_jumped := false
@@ -25,9 +28,19 @@ func stop_moving(entity: CharacterBody2D, deceleration:
 func jump(entity: CharacterBody2D):
 	entity.velocity.y = jump_velocity
 	has_jumped = true
-	
+
+func start_buffer_time():
+	jump_buffer_timer = jump_buffer_time
+
 func reset_jumps():
 	has_jumped = false
+	
+func can_jump() -> bool: 
+	return not has_jumped && jump_buffer_timer > 0
 
 func apply(entity: CharacterBody2D):
 	entity.move_and_slide()
+	
+func _physics_process(delta: float) -> void:
+	if (jump_buffer_timer > 0):
+		jump_buffer_timer -= delta

@@ -15,4 +15,7 @@ func get_last_direction() -> float:
 	return last_direction
 
 func jump_pressed() -> bool:
+	return Input.is_action_just_pressed('jump')
+
+func jump_held() -> bool:
 	return Input.is_action_pressed('jump')
