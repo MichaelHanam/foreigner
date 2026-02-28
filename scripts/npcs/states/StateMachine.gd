@@ -4,16 +4,18 @@ class_name NPCStateMachine
 enum StateID {
 	LOCKED,
 	IDLE,
-	CARRIED
+	LOADING,
+	TRIGGER,
+	#CARRIED
 }
 
 @export var states: Dictionary[StateID, Resource]
 @export var initial_state: StateID
 
 var current_state : Resource
-var npc : CharacterBody2D
+var npc : NPC
 
-func init(n: CharacterBody2D):
+func init(n: NPC):
 	npc = n
 	change_state(initial_state)
 	
@@ -25,7 +27,7 @@ func change_state(state_id: StateID):
 		print('there is no state: ', StateID.keys()[state_id])
 		pass
 	
-	print('changed state to: ', StateID.keys()[state_id])
+	print('npc changed state to: ', StateID.keys()[state_id])
 	
 	current_state = states[state_id]
 	current_state.enter(npc)

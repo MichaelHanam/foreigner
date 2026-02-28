@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bhqds3jipry74"]
+[gd_scene load_steps=8 format=4 uid="uid://bhqds3jipry74"]
 
 [ext_resource type="Texture2D" uid="uid://cj4k56hmrkcqn" path="res://assets/tilesets/tileset_cave.png" id="1_2ddto"]
 [ext_resource type="Texture2D" uid="uid://8lf3egtanrof" path="res://assets/msc/spr_grid_dark.png" id="2_j6lu3"]
 [ext_resource type="PackedScene" uid="uid://c0d3wyqm3sjw3" path="res://objects/player.tscn" id="4_j6lu3"]
 [ext_resource type="Script" uid="uid://c6djuvf6avs6o" path="res://scripts/Follower.gd" id="4_tpt06"]
+[ext_resource type="PackedScene" uid="uid://c5evme6xobw51" path="res://objects/toaster.tscn" id="5_tpt06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgld7"]
 texture = ExtResource("1_2ddto")
@@ -354,3 +355,6 @@ offset = Vector2(0, -10)
 [node name="Camera" type="Camera2D" parent="Follower"]
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="Toaster" parent="." instance=ExtResource("5_tpt06")]
+position = Vector2(100, 74)

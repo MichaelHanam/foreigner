@@ -9,7 +9,7 @@ func enter(player):
 	player.audio.play_jumping()
 	
 func _air_update(player, state_machine, delta):
-	player.gravity.apply(player, GRAVITY, delta)
+	player.gravity.apply(player, delta, GRAVITY)
 	
 	var direction = player.input.get_direction()
 	

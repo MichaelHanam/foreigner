@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bwkajbpfqye4r" path="res://scripts/components/GravityComponent.gd" id="6_3rerk"]
 [ext_resource type="Resource" uid="uid://bnyy7hao2dvd0" path="res://scripts/player/states/air/FallState.tres" id="7_42cpl"]
 [ext_resource type="Resource" uid="uid://cct6kl8ab80wq" path="res://scripts/player/states/air/GlideState.tres" id="8_r673r"]
-[ext_resource type="Script" uid="uid://cq04dan3arxuk" path="res://scripts/player/states/LockedState.gd" id="10_183dw"]
+[ext_resource type="Resource" uid="uid://ocaj8e6q7lur" path="res://scripts/player/states/LockedState.tres" id="10_183dw"]
 [ext_resource type="Script" uid="uid://dc4rpq1qp88si" path="res://scripts/components/AnimationComponent.gd" id="11_3nfmf"]
 [ext_resource type="Script" uid="uid://4eepf1fevrj5" path="res://scripts/components/PlayerAnimator.gd" id="12_42cpl"]
 [ext_resource type="Script" uid="uid://br02c15h4uwv5" path="res://scripts/components/PlayerAudioComponent.gd" id="14_mqnmn"]

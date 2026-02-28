@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LockedState" load_steps=2 format=3 uid="uid://ocaj8e6q7lur"]
+
+[ext_resource type="Script" uid="uid://cq04dan3arxuk" path="res://scripts/player/states/LockedState.gd" id="1_rjo2p"]
+
+[resource]
+script = ExtResource("1_rjo2p")
+metadata/_custom_type_script = "uid://cq04dan3arxuk"

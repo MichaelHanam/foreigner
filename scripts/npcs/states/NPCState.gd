@@ -1,16 +1,16 @@
 extends Resource
 class_name NPCState
 
-func enter(npc: CharacterBody2D):
+func enter(npc: NPC):
 	pass
 
-func exit(npc: CharacterBody2D):
+func exit(npc: NPC):
 	pass
 
-func physics_update(npc: CharacterBody2D, 
+func physics_update(npc: NPC, 
 	state_machine: NPCStateMachine, delta: float):
 		
 	pass
 
-func draw(npc: CharacterBody2D):
+func draw(npc: NPC):
 	pass

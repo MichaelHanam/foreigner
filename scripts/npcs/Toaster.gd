@@ -1,4 +1,19 @@
 extends CharacterBody2D
+class_name NPC
 
-@onready var trigger: Area2D = $Trigger
+@onready var trigger: TriggerArea = $Trigger
+@onready var gravity: GravityComponent = $GravityComponent
 @onready var bounce: BounceComponent = $BounceComponent
+@onready var state_machine: NPCStateMachine = $StateMachine
+@onready var animator: NPCAnimationComponent = $AnimationComponent
+@onready var audio: NPCAudioComponent = $AudioComponent
+
+func _ready() -> void:
+	state_machine.init(self)
+
+func _physics_process(delta: float) -> void:
+	state_machine.physics_process(delta)
+	move_and_slide()
+
+func _draw() -> void:
+	state_machine.draw()

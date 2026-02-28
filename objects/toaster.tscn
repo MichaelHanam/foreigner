@@ -1,12 +1,162 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5evme6xobw51"]
+[gd_scene load_steps=19 format=3 uid="uid://c5evme6xobw51"]
 
 [ext_resource type="Script" uid="uid://drxx1wb5lkx2s" path="res://scripts/npcs/Toaster.gd" id="1_2gbp6"]
 [ext_resource type="Texture2D" uid="uid://oids45rwx20u" path="res://assets/sprites/npcs/spr_toaster.png" id="1_nt105"]
 [ext_resource type="Script" uid="uid://bfg3hlqx7c7d5" path="res://scripts/components/BounceComponent.gd" id="2_tem0o"]
+[ext_resource type="Script" uid="uid://c6lcwec5koekx" path="res://scripts/npcs/TriggerArea.gd" id="3_5ulbw"]
 [ext_resource type="Script" uid="uid://ci8hje5x2xxdi" path="res://scripts/npcs/states/StateMachine.gd" id="4_hhgjn"]
+[ext_resource type="Resource" uid="uid://dq1tx2fyqny5k" path="res://scripts/npcs/states/NPCIdleState.tres" id="5_aanqq"]
+[ext_resource type="Script" uid="uid://dj4pgx6s3roqr" path="res://scripts/components/NPCAnimationComponent.gd" id="5_dggjt"]
+[ext_resource type="Script" uid="uid://bcbi5nwhy2o0m" path="res://scripts/npcs/NPCAnimator.gd" id="5_hhgjn"]
+[ext_resource type="Resource" uid="uid://bksot8u6jw2gn" path="res://scripts/npcs/states/NPCLoadingState.tres" id="6_5hrxl"]
+[ext_resource type="Script" uid="uid://dhqlh5cv12vom" path="res://scripts/components/NPCAudioComponent.gd" id="6_kqfpj"]
+[ext_resource type="Resource" uid="uid://dvxe6oxqc2yc1" path="res://scripts/npcs/states/ToasterTriggerState.tres" id="7_oyafh"]
+[ext_resource type="Script" uid="uid://bwkajbpfqye4r" path="res://scripts/components/GravityComponent.gd" id="8_5hrxl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt105"]
 size = Vector2(20, 3)
+
+[sub_resource type="Animation" id="Animation_dggjt"]
+resource_name = "IDLE"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kqfpj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ulbw"]
+resource_name = "LOADING"
+length = 0.2333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.09091, 0.888889)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8jnxm"]
+resource_name = "TRIGGER"
+length = 0.2333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.09091, 0.888889), Vector2(0.920371, 1.05556), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(5.96046e-08, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8jnxm"]
+_data = {
+&"IDLE": SubResource("Animation_dggjt"),
+&"LOADING": SubResource("Animation_5ulbw"),
+&"RESET": SubResource("Animation_kqfpj"),
+&"TRIGGER": SubResource("Animation_8jnxm")
+}
 
 [node name="Toaster" type="CharacterBody2D" groups=["npc"]]
 script = ExtResource("1_2gbp6")
@@ -17,18 +167,45 @@ hframes = 4
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-11, -4)
-polygon = PackedVector2Array(-5, -5, -5, 13, 28, 13, 28, -5, 26, -5, 23, 10, 0, 10, -3, -5)
+polygon = PackedVector2Array(-5, -5, -5, 13, 28, 13, 28, -5, 23, 10, 0, 10)
 
 [node name="Trigger" type="Area2D" parent="."]
+script = ExtResource("3_5ulbw")
 
 [node name="Collider" type="CollisionShape2D" parent="Trigger"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_nt105")
 
-[node name="BounceComponent" type="Node" parent="."]
-script = ExtResource("2_tem0o")
-
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_hhgjn")
+states = Dictionary[int, Resource]({
+1: ExtResource("5_aanqq"),
+2: ExtResource("6_5hrxl"),
+3: ExtResource("7_oyafh")
+})
+initial_state = 1
+
+[node name="GravityComponent" type="Node" parent="."]
+script = ExtResource("8_5hrxl")
+
+[node name="BounceComponent" type="Node" parent="."]
+script = ExtResource("2_tem0o")
+bounce_strength = 700.0
 
 [node name="CarriableComponent" type="Node" parent="."]
+
+[node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player")]
+script = ExtResource("5_dggjt")
+animation_player = NodePath("../NPCAnimator")
+
+[node name="AudioComponent" type="Node" parent="."]
+script = ExtResource("6_kqfpj")
+
+[node name="NPCAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8jnxm")
+}
+script = ExtResource("5_hhgjn")
+
+[connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
+[connection signal="body_exited" from="Trigger" to="Trigger" method="_on_body_exited"]
