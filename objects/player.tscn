@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0d3wyqm3sjw3"]
+[gd_scene load_steps=23 format=3 uid="uid://c0d3wyqm3sjw3"]
 
 [ext_resource type="Texture2D" uid="uid://y1ju5fkgl25x" path="res://assets/sprites/player/spr_player.png" id="1_eqqp1"]
 [ext_resource type="Script" uid="uid://fuhwjbwxgafl" path="res://scripts/player/Player.gd" id="1_uxov2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://bf1v7stp0ymvj" path="res://scripts/player/states/air/JumpState.tres" id="6_3nfmf"]
 [ext_resource type="Script" uid="uid://bwkajbpfqye4r" path="res://scripts/components/GravityComponent.gd" id="6_3rerk"]
 [ext_resource type="Resource" uid="uid://bnyy7hao2dvd0" path="res://scripts/player/states/air/FallState.tres" id="7_42cpl"]
+[ext_resource type="Resource" uid="uid://cct6kl8ab80wq" path="res://scripts/player/states/air/GlideState.tres" id="8_r673r"]
 [ext_resource type="Script" uid="uid://dc4rpq1qp88si" path="res://scripts/components/AnimationComponent.gd" id="11_3nfmf"]
 [ext_resource type="Script" uid="uid://4eepf1fevrj5" path="res://scripts/components/PlayerAnimator.gd" id="12_42cpl"]
 
@@ -150,7 +151,8 @@ states = Dictionary[int, Resource]({
 0: ExtResource("4_4vq5b"),
 1: ExtResource("5_4vq5b"),
 2: ExtResource("6_3nfmf"),
-3: ExtResource("7_42cpl")
+3: ExtResource("8_r673r"),
+4: ExtResource("7_42cpl")
 })
 
 [node name="MovementComponent" type="Node" parent="."]

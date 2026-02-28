@@ -17,5 +17,8 @@ func _air_update(player, state_machine, delta):
 	else:
 		player.movement.stop_moving(player)
 		
-	if (not player.input.jump_held() || player.velocity.y > 0):
+	if (player.input.jump_held() && player.velocity.y > 0):
+		state_machine.change_state(PlayerStateMachine.StateID.GLIDE)
+		
+	elif (not player.input.jump_held() || player.velocity.y > 0):
 		state_machine.change_state(PlayerStateMachine.StateID.FALL)
