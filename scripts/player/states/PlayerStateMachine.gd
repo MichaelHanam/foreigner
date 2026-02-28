@@ -5,7 +5,8 @@ enum StateID {
 	IDLE,
 	MOVE,
 	JUMP,
-	FALL
+	GLIDE,
+	FALL,
 }
 
 @export var states : Dictionary[StateID, Resource]

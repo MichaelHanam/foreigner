@@ -21,5 +21,12 @@ func _air_update(player, state_machine, delta):
 	if (player.input.jump_pressed()):
 		if (player.movement.can_jump() && player.movement.is_in_coyote_time()):
 			state_machine.change_state(PlayerStateMachine.StateID.JUMP)
+			
+			return
 		
 		player.movement.start_buffer_timer()
+		
+	if (player.input.jump_held()):
+		state_machine.change_state(PlayerStateMachine.StateID.GLIDE)
+		
+		return
