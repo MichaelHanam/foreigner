@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5evme6xobw51"]
+[gd_scene load_steps=25 format=3 uid="uid://c5evme6xobw51"]
 
 [ext_resource type="Script" uid="uid://drxx1wb5lkx2s" path="res://scripts/npcs/Toaster.gd" id="1_2gbp6"]
 [ext_resource type="Texture2D" uid="uid://oids45rwx20u" path="res://assets/sprites/npcs/spr_toaster.png" id="1_nt105"]
@@ -12,11 +12,23 @@
 [ext_resource type="Script" uid="uid://dhqlh5cv12vom" path="res://scripts/components/NPCAudioComponent.gd" id="6_kqfpj"]
 [ext_resource type="Resource" uid="uid://dvxe6oxqc2yc1" path="res://scripts/npcs/states/ToasterTriggerState.tres" id="7_oyafh"]
 [ext_resource type="Script" uid="uid://bwkajbpfqye4r" path="res://scripts/components/GravityComponent.gd" id="8_5hrxl"]
+[ext_resource type="Script" uid="uid://dgcxcdygogg86" path="res://scripts/components/InteractDisplayComponent.gd" id="11_i872a"]
 [ext_resource type="AudioStream" uid="uid://dqr31hsla4mjk" path="res://assets/audio/sfx/npc/sfx_toaster_load.wav" id="12_0y3gb"]
+[ext_resource type="FontFile" uid="uid://746bbwi2t3nb" path="res://assets/fonts/Early GameBoy 2.ttf" id="12_bpkt8"]
 [ext_resource type="AudioStream" uid="uid://bvjkdu20wfdjf" path="res://assets/audio/sfx/npc/sfx_toaster_jump.wav" id="13_i872a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt105"]
 size = Vector2(20, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpkt8"]
+size = Vector2(55.5, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8l17o"]
+font = ExtResource("12_bpkt8")
+font_size = 8
+outline_size = 1
+outline_color = Color(0.411644, 0.274164, 1, 1)
+shadow_color = Color(0, 0, 0, 0.541176)
 
 [sub_resource type="Animation" id="Animation_dggjt"]
 resource_name = "IDLE"
@@ -200,6 +212,25 @@ bounce_strength = 700.0
 script = ExtResource("5_dggjt")
 animation_player = NodePath("../NPCAnimator")
 
+[node name="InteractDisplayComponent" type="Node2D" parent="." node_paths=PackedStringArray("display_element")]
+script = ExtResource("11_i872a")
+display_element = NodePath("Label")
+
+[node name="Area" type="Area2D" parent="InteractDisplayComponent"]
+
+[node name="Collider" type="CollisionShape2D" parent="InteractDisplayComponent/Area"]
+shape = SubResource("RectangleShape2D_bpkt8")
+
+[node name="Label" type="Label" parent="InteractDisplayComponent"]
+offset_left = -48.0
+offset_top = -25.0
+offset_right = 48.0
+offset_bottom = -15.0
+text = "E to interact"
+label_settings = SubResource("LabelSettings_8l17o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AudioComponent" type="Node" parent="."]
 script = ExtResource("6_kqfpj")
 loading_sound = ExtResource("12_0y3gb")
@@ -215,3 +246,5 @@ script = ExtResource("5_hhgjn")
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
 [connection signal="body_exited" from="Trigger" to="Trigger" method="_on_body_exited"]
+[connection signal="body_entered" from="InteractDisplayComponent/Area" to="InteractDisplayComponent" method="_on_area_body_entered"]
+[connection signal="body_exited" from="InteractDisplayComponent/Area" to="InteractDisplayComponent" method="_on_area_body_exited"]

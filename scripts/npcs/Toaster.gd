@@ -7,6 +7,7 @@ class_name NPC
 @onready var state_machine: NPCStateMachine = $StateMachine
 @onready var animator: NPCAnimationComponent = $AnimationComponent
 @onready var audio: NPCAudioComponent = $AudioComponent
+@onready var interact_display: InteractDisplayComponent = $InteractDisplayComponent
 
 func _ready() -> void:
 	state_machine.init(self)

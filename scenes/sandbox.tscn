@@ -335,10 +335,10 @@ motion_scale = Vector2(0.2, 0.2)
 
 [node name="Grid" type="TextureRect" parent="Background/BackgroundParallax"]
 texture_repeat = 2
-offset_left = -705.0
-offset_top = -602.0
-offset_right = 2295.0
-offset_bottom = 2092.0
+offset_left = -591.0
+offset_top = -616.0
+offset_right = 2409.0
+offset_bottom = 2078.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j6lu3")
 stretch_mode = 1
@@ -357,4 +357,4 @@ position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
 [node name="Toaster" parent="." instance=ExtResource("5_tpt06")]
-position = Vector2(100, 74)
+position = Vector2(-40, 27)
