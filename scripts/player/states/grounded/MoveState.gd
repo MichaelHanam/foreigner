@@ -9,3 +9,7 @@ func _grounded_update(player, state_machine, delta):
 		state_machine.change_state(PlayerStateMachine.StateID.IDLE)
 		
 	player.movement.move_horizontally(player, player.input.get_direction())
+	player.audio.play_walking()
+	
+func exit(player):
+	player.audio.stop()

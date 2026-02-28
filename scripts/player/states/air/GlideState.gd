@@ -7,6 +7,9 @@ const DECELERATION := 10.0
 
 func enter(player):
 	player.animator.play(PlayerAnimator.Animations.GLIDE)
+	player.audio.stop()
+	player.audio.play_gliding()
+	
 	if (player.movement.can_boost()):
 		player.movement.boost(player)
 	
@@ -22,3 +25,6 @@ func _air_update(player, state_machine, delta):
 		
 	if (not player.input.jump_held()):
 		state_machine.change_state(PlayerStateMachine.StateID.FALL)
+	
+func exit(player):
+	player.audio.stop()

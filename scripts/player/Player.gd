@@ -5,6 +5,7 @@ class_name Player
 @onready var movement: MovementComponent = $MovementComponent
 @onready var gravity: GravityComponent = $GravityComponent
 @onready var input: InputComponent = $InputComponent
+@onready var audio: PlayerAudioComponent = $AudioComponent
 @onready var collider: CollisionShape2D = $Collider
 @onready var sprite: PlayerSprite = $Sprite
 @onready var animator: AnimationComponent = $AnimationComponent

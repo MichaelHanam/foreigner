@@ -5,7 +5,10 @@ func physics_update(player, state_machine, delta):
 	_air_update(player, state_machine, delta)
 	
 	if (player.is_on_floor() && player.velocity.y >= 0):
+		player.audio.play_landing()
+
 		state_machine.change_state(PlayerStateMachine.StateID.IDLE)
+	
 		return
 		
 	player.movement.apply(player)
