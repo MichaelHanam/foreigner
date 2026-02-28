@@ -12,5 +12,5 @@ func physics_update(player: Player,
 		
 	pass
 
-func draw(player):
+func draw(player: Player):
 	pass

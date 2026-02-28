@@ -1,28 +1,25 @@
 extends Node
-class_name PlayerStateMachine
+class_name NPCStateMachine
 
 enum StateID {
-	IDLE,
-	MOVE,
-	JUMP,
-	GLIDE,
-	FALL,
 	LOCKED,
+	IDLE,
+	CARRIED
 }
 
-@export var states : Dictionary[StateID, Resource]
-@export var initial_state : StateID
+@export var states: Dictionary[StateID, Resource]
+@export var initial_state: StateID
 
 var current_state : Resource
-var player : Player
+var npc : CharacterBody2D
 
-func init(p: Player):
-	player = p
+func init(n: CharacterBody2D):
+	npc = n
 	change_state(initial_state)
 	
 func change_state(state_id: StateID):
 	if (current_state):
-		current_state.exit(player)
+		current_state.exit(npc)
 	
 	if (not states[state_id]):
 		print('there is no state: ', StateID.keys()[state_id])
@@ -31,12 +28,12 @@ func change_state(state_id: StateID):
 	print('changed state to: ', StateID.keys()[state_id])
 	
 	current_state = states[state_id]
-	current_state.enter(player)
+	current_state.enter(npc)
 
 func physics_process(delta: float):
 	if (current_state):
-		current_state.physics_update(player, self, delta)
+		current_state.physics_update(npc, self, delta)
 
 func draw():
 	if (current_state):
-		current_state.draw(player)
+		current_state.draw(npc)
