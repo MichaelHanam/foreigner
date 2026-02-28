@@ -23,6 +23,3 @@ func _air_update(player, state_machine, delta):
 			state_machine.change_state(PlayerStateMachine.StateID.JUMP)
 		
 		player.movement.start_buffer_timer()
-		
-	if (player.is_on_floor()):
-		state_machine.change_state(PlayerStateMachine.StateID.IDLE)
