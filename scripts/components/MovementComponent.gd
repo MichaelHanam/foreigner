@@ -34,7 +34,7 @@ func jump(entity: CharacterBody2D, velocity: float = jump_velocity):
 	has_jumped = true
 
 func boost(entity: CharacterBody2D, velocity: float = boost_velocity):
-	entity.velocity.y -= velocity
+	entity.velocity.y += velocity
 	has_boosted = true
 
 func start_buffer_timer():
