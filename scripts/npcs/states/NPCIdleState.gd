@@ -4,7 +4,7 @@ class_name NPCIdleState
 func physics_update(npc, state_machine, delta):
 	npc.gravity.apply(npc, delta)
 	
-	if(npc.interact_display.player):
+	if(npc.interact_display.get_player()):
 		npc.interact_display.display()
 	else:
 		npc.interact_display.stop_display()

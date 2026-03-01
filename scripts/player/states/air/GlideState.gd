@@ -4,6 +4,7 @@ class_name GlideState
 const GRAVITY := 50.0
 const ACCELERATION := 15.0
 const DECELERATION := 10.0
+const MAX_GLIDE_VELOCITY := -100.0
 
 func enter(player):
 	player.animator.play(PlayerAnimator.Animations.GLIDE)
@@ -14,7 +15,7 @@ func enter(player):
 		player.movement.boost(player)
 	
 func _air_update(player, state_machine, delta):
-	player.gravity.apply(player, delta, GRAVITY)
+	player.gravity.apply(player, delta, GRAVITY, MAX_GLIDE_VELOCITY)
 	
 	var direction = player.input.get_direction()
 	

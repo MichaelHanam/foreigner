@@ -173,7 +173,7 @@ script = ExtResource("5_f46kd")
 script = ExtResource("2_ykyjo")
 max_move_speed = 220.0
 jump_velocity = -260.0
-boost_velocity = 80
+boost_velocity = 80.0
 acceleration = 25.0
 deceleration = 30.0
 

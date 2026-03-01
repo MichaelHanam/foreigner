@@ -2,7 +2,6 @@ extends Node2D
 
 @export var lead: CharacterBody2D;
 @export var max_distance := 100.0
-@export var speed := 10.0
 @export var offset := Vector2(0, 0)
 
 func _process(delta: float) -> void:

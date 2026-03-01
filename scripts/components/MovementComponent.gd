@@ -3,7 +3,7 @@ class_name MovementComponent
 
 @export var max_move_speed := 300.0
 @export var jump_velocity := -150.0
-@export var boost_velocity := -50
+@export var boost_velocity := -50.0
 @export var acceleration := 40.0
 @export var deceleration := 40.0
 @export var jump_buffer_time := 0.15
@@ -30,7 +30,7 @@ func stop_moving(entity: CharacterBody2D, deceleration:
 		deceleration)
 
 func jump(entity: CharacterBody2D, velocity: float = jump_velocity):
-	entity.velocity.y = velocity
+	entity.velocity.y = min(velocity, entity.velocity.y)
 	has_jumped = true
 
 func boost(entity: CharacterBody2D, velocity: float = boost_velocity):
@@ -65,4 +65,3 @@ func apply(entity: CharacterBody2D):
 func _physics_process(delta: float) -> void:
 	jump_buffer_timer = max(0, jump_buffer_timer - delta)
 	coyote_timer = max(0, coyote_timer - delta)
-	

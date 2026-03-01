@@ -349,7 +349,6 @@ position = Vector2(40, 64)
 [node name="Follower" type="Node2D" parent="." node_paths=PackedStringArray("lead")]
 script = ExtResource("4_tpt06")
 lead = NodePath("../Player")
-speed = 100.0
 offset = Vector2(0, -10)
 
 [node name="Camera" type="Camera2D" parent="Follower"]

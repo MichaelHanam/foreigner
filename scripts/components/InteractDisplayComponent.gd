@@ -7,17 +7,18 @@ class_name InteractDisplayComponent
 var player: Player
 
 func display():
-	print('disgas')
 	display_element.visible = true
 	
 func stop_display():
 	display_element.visible = false
 
 func _on_area_body_entered(body: Node2D) -> void:
-	print(body)
 	if body.is_in_group('player'):
 		player = body
 
 func _on_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group('player'):
 		player = null
+
+func get_player():
+	return player
