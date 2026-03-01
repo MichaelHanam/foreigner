@@ -19,3 +19,6 @@ func jump_pressed() -> bool:
 
 func jump_held() -> bool:
 	return Input.is_action_pressed('jump')
+
+func action_pressed() -> bool:
+	return Input.is_action_just_pressed("action")

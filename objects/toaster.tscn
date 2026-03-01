@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5evme6xobw51"]
+[gd_scene load_steps=27 format=3 uid="uid://c5evme6xobw51"]
 
 [ext_resource type="Script" uid="uid://drxx1wb5lkx2s" path="res://scripts/npcs/Toaster.gd" id="1_2gbp6"]
 [ext_resource type="Texture2D" uid="uid://oids45rwx20u" path="res://assets/sprites/npcs/spr_toaster.png" id="1_nt105"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://dhqlh5cv12vom" path="res://scripts/components/NPCAudioComponent.gd" id="6_kqfpj"]
 [ext_resource type="Resource" uid="uid://dvxe6oxqc2yc1" path="res://scripts/npcs/states/ToasterTriggerState.tres" id="7_oyafh"]
 [ext_resource type="Script" uid="uid://bwkajbpfqye4r" path="res://scripts/components/GravityComponent.gd" id="8_5hrxl"]
+[ext_resource type="Resource" uid="uid://cjyml3ag6k8ph" path="res://scripts/npcs/states/NPCLockedState.tres" id="8_h3a76"]
+[ext_resource type="Script" uid="uid://dy6y1bkd2xqj5" path="res://scripts/components/CarriableComponent.gd" id="10_8l17o"]
 [ext_resource type="Script" uid="uid://dgcxcdygogg86" path="res://scripts/components/InteractDisplayComponent.gd" id="11_i872a"]
 [ext_resource type="AudioStream" uid="uid://dqr31hsla4mjk" path="res://assets/audio/sfx/npc/sfx_toaster_load.wav" id="12_0y3gb"]
 [ext_resource type="FontFile" uid="uid://746bbwi2t3nb" path="res://assets/fonts/Early GameBoy 2.ttf" id="12_bpkt8"]
@@ -193,6 +195,7 @@ shape = SubResource("RectangleShape2D_nt105")
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_hhgjn")
 states = Dictionary[int, Resource]({
+0: ExtResource("8_h3a76"),
 1: ExtResource("5_aanqq"),
 2: ExtResource("6_5hrxl"),
 3: ExtResource("7_oyafh")
@@ -206,7 +209,8 @@ script = ExtResource("8_5hrxl")
 script = ExtResource("2_tem0o")
 bounce_strength = 700.0
 
-[node name="CarriableComponent" type="Node" parent="."]
+[node name="CarriableComponent" type="Node2D" parent="."]
+script = ExtResource("10_8l17o")
 
 [node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player")]
 script = ExtResource("5_dggjt")

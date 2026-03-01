@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c0d3wyqm3sjw3"]
+[gd_scene load_steps=34 format=3 uid="uid://c0d3wyqm3sjw3"]
 
 [ext_resource type="Texture2D" uid="uid://y1ju5fkgl25x" path="res://assets/sprites/player/spr_player.png" id="1_eqqp1"]
 [ext_resource type="Script" uid="uid://fuhwjbwxgafl" path="res://scripts/player/Player.gd" id="1_uxov2"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://j422o1xbl45l" path="res://assets/audio/sfx/player/sfx_walk_5.wav" id="19_nflk0"]
 [ext_resource type="AudioStream" uid="uid://mixpymbdqtq6" path="res://assets/audio/sfx/player/sfx_jump.wav" id="21_cyhxw"]
 [ext_resource type="AudioStream" uid="uid://r60jae67s0r4" path="res://assets/audio/sfx/player/sfx_land.wav" id="22_wq66c"]
+[ext_resource type="Script" uid="uid://crjucwafi8r6u" path="res://scripts/components/CarryingComponent.gd" id="24_nflk0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykyjo"]
 size = Vector2(26, 8)
@@ -176,6 +177,7 @@ jump_velocity = -260.0
 boost_velocity = 80.0
 acceleration = 25.0
 deceleration = 30.0
+coyote_time = 0.08
 
 [node name="GravityComponent" type="Node" parent="."]
 script = ExtResource("6_3rerk")
@@ -193,6 +195,10 @@ landing_sound = Array[AudioStream]([ExtResource("22_wq66c")])
 jumping_sound = Array[AudioStream]([ExtResource("21_cyhxw")])
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="AudioComponent"]
+
+[node name="CarryingComponent" type="Node" parent="."]
+script = ExtResource("24_nflk0")
+offset = Vector2(0, -24)
 
 [node name="PlayerAnimator" type="AnimationPlayer" parent="."]
 libraries = {
