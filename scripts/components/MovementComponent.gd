@@ -18,10 +18,10 @@ var has_boosted := false
 
 func move_horizontally(entity: CharacterBody2D, direction: float, 
 	acceleration: float = acceleration,
-	move_speed: float = max_move_speed):
+	speed_mult: float = 1):
 	
 	entity.velocity.x = move_toward(entity.velocity.x, 
-		move_speed * direction, acceleration)
+		max_move_speed * speed_mult * direction, acceleration)
 
 func stop_moving(entity: CharacterBody2D, deceleration: 
 	float = deceleration):

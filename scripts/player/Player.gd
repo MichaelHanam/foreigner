@@ -10,6 +10,7 @@ class_name Player
 @onready var collider: CollisionShape2D = $Collider
 @onready var sprite: PlayerSprite = $Sprite
 @onready var animator: AnimationComponent = $AnimationComponent
+@onready var debug: DebugDrawComponent = $DebugDrawComponent
 
 func _ready() -> void:
 	state_machine.init(self)

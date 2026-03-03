@@ -20,4 +20,4 @@ func _physics_process(delta: float) -> void:
 
 func _draw() -> void:
 	state_machine.draw()
-	carriable.draw(self)
+	carriable.draw_preview_rect(self)

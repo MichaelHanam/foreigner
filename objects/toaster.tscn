@@ -207,10 +207,12 @@ script = ExtResource("8_5hrxl")
 
 [node name="BounceComponent" type="Node" parent="."]
 script = ExtResource("2_tem0o")
-bounce_strength = 700.0
+bounce_strength = 600.0
 
 [node name="CarriableComponent" type="Node2D" parent="."]
 script = ExtResource("10_8l17o")
+size = Vector2(33, 18)
+distance = 4
 
 [node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player")]
 script = ExtResource("5_dggjt")

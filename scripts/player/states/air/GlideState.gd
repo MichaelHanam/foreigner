@@ -3,8 +3,9 @@ class_name GlideState
 
 const GRAVITY := 50.0
 const ACCELERATION := 15.0
-const DECELERATION := 10.0
+const DECELERATION := 2.0
 const MAX_GLIDE_VELOCITY := -100.0
+const SPEED_MULT := 0.4
 
 func enter(player):
 	player.animator.play(PlayerAnimator.Animations.GLIDE)
@@ -22,7 +23,7 @@ func _air_update(player, state_machine, delta):
 	if direction:
 		player.movement.move_horizontally(player, direction, ACCELERATION)
 	else:
-		player.movement.stop_moving(player, DECELERATION)
+		player.movement.move_horizontally(player, player.input.get_last_direction(), DECELERATION, SPEED_MULT)
 		
 	if (not player.input.jump_held()):
 		state_machine.change_state(PlayerStateMachine.StateID.FALL)
