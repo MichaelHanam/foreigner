@@ -1,11 +1,12 @@
 extends Node
 class_name GravityComponent
 
-@export var gravity_jump := 600.0
-@export var gravity_fall := 600.0
+@export var gravity := 600.0
 @export var max_fall_speed := 1000.0
 
-func apply(player: CharacterBody2D, gravity: float, delta: float):
-	if (not player.is_on_floor()):
-		player.velocity.y += gravity * delta
-		player.velocity.y = min(player.velocity.y, max_fall_speed)
+func apply(entity: CharacterBody2D, delta: float, gravity: float = gravity, max_rise_velocity: float = -INF):
+	entity.velocity.y = max(max_rise_velocity, entity.velocity.y)
+	
+	if (not entity.is_on_floor()):
+		entity.velocity.y += gravity * delta
+		entity.velocity.y = min(entity.velocity.y, max_fall_speed)

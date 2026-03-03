@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://clr5yofds3bhf"
-path="res://.godot/imported/sfx_fly.wav-679dd46813f79aad5afd362ab8fceeb7.sample"
+path="res://.godot/imported/sfx_fly.wav-874dbe8f782b18bf432b21c59a282543.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/sfx_fly.wav"
-dest_files=["res://.godot/imported/sfx_fly.wav-679dd46813f79aad5afd362ab8fceeb7.sample"]
+source_file="res://assets/audio/sfx/player/sfx_fly.wav"
+dest_files=["res://.godot/imported/sfx_fly.wav-874dbe8f782b18bf432b21c59a282543.sample"]
 
 [params]
 
@@ -17,7 +17,7 @@ force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=true
-edit/normalize=true
+edit/normalize=false
 edit/loop_mode=2
 edit/loop_begin=0
 edit/loop_end=-1

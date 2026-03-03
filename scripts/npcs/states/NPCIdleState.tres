@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NPCIdleState" load_steps=2 format=3 uid="uid://dq1tx2fyqny5k"]
+
+[ext_resource type="Script" uid="uid://610tuuanouad" path="res://scripts/npcs/states/NPCIdleState.gd" id="1_c1rgr"]
+
+[resource]
+script = ExtResource("1_c1rgr")
+metadata/_custom_type_script = "uid://610tuuanouad"

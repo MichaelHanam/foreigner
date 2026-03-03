@@ -1,0 +1,2 @@
+extends NPCState
+class_name NPCCarriedState

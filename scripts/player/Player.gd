@@ -6,15 +6,18 @@ class_name Player
 @onready var gravity: GravityComponent = $GravityComponent
 @onready var input: InputComponent = $InputComponent
 @onready var audio: PlayerAudioComponent = $AudioComponent
+@onready var carrying: CarryingComponent = $CarryingComponent
 @onready var collider: CollisionShape2D = $Collider
 @onready var sprite: PlayerSprite = $Sprite
 @onready var animator: AnimationComponent = $AnimationComponent
+@onready var debug: DebugDrawComponent = $DebugDrawComponent
 
 func _ready() -> void:
 	state_machine.init(self)
 
 func _physics_process(delta: float) -> void:
 	state_machine.physics_process(delta)
+	carrying.physics_update(self)
 	flip_sprite()
 
 func flip_sprite():

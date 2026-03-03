@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NPCLoadingState" load_steps=2 format=3 uid="uid://bksot8u6jw2gn"]
+
+[ext_resource type="Script" uid="uid://dvv32qihechwv" path="res://scripts/npcs/states/NPCLoadingState.gd" id="1_kaeuq"]
+
+[resource]
+script = ExtResource("1_kaeuq")
+metadata/_custom_type_script = "uid://dvv32qihechwv"
